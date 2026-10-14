@@ -4,7 +4,7 @@
 // If the API is unreachable (e.g. plain static hosting), the site falls back to direct browser RDAP.
 export const API_BASE = '';
 export const SITE = {
-  name: 'DomainLookup',
+  name: 'Domain Lookup',
   tagline: 'Free WHOIS, RDAP & DNS Lookup',
   developer: 'Access Authority',
   developerUrl: 'https://accessauthority.in'
