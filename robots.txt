@@ -1,0 +1,22 @@
+# robots.txt for DomainLookup
+# https://domainlookup.onrender.com/
+
+User-agent: *
+Allow: /
+
+# Block API and internal paths from crawlers
+Disallow: /api/
+Disallow: /server/
+Disallow: /worker/
+Disallow: /test/
+
+# Block common junk paths
+Disallow: /*?d=
+Disallow: /*?q=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Sitemap
+Sitemap: https://domainlookup.onrender.com/sitemap.xml

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home / Domain Lookup -->
+  <url>
+    <loc>https://domainlookup.onrender.com/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- How It Works -->
+  <url>
+    <loc>https://domainlookup.onrender.com/how-it-works.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://domainlookup.onrender.com/faq.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Developer -->
+  <url>
+    <loc>https://domainlookup.onrender.com/developer.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://domainlookup.onrender.com/privacy.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Terms of Use -->
+  <url>
+    <loc>https://domainlookup.onrender.com/terms.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

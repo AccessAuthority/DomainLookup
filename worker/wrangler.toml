@@ -1,0 +1,14 @@
+name = "DomainLookup-api"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Set to your site origin in production, e.g. "https://DomainLookup.example.com"
+ALLOWED_ORIGIN = "https://domainlookup.onrender.com"   # only your own site may call this API (comma separate several origins)
+
+# Recommended: global rate limit (replaces the weak per-isolate counter). Uncomment, then `wrangler deploy`.
+# [[unsafe.bindings]]
+# name = "RATE_LIMITER"
+# type = "ratelimit"
+# namespace_id = "1001"
+# simple = { limit = 30, period = 60 }

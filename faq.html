@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain Lookup FAQ — WHOIS, RDAP, DNS & Status Codes Explained | DomainLookup</title>
+<meta name="description" content="Answers to common questions about domain lookup: WHOIS vs RDAP, DNS records, domain status codes, redacted owner details, rate limits, security and how DomainLookup works.">
+<meta name="keywords" content="whois faq, rdap faq, domain status codes, dns records explained, domain privacy, redacted whois, domain lookup help, dns over https, domain availability">
+<meta name="theme-color" content="#0f1115">
+<link rel="canonical" href="https://domainlookup.onrender.com/faq.html">
+    <meta property="og:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DomainLookup — free WHOIS, RDAP and DNS lookup" />
+    <meta name="twitter:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+<meta property="og:title" content="Domain Lookup FAQ — WHOIS, RDAP, DNS & Status Codes Explained">
+<meta property="og:description" content="Answers to common questions about domain lookup: WHOIS vs RDAP, DNS records, status codes, privacy and how DomainLookup works.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://domainlookup.onrender.com/faq.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Domain Lookup FAQ — WHOIS, RDAP, DNS & Status Codes Explained">
+<meta name="twitter:description" content="Answers to common questions about domain lookup: WHOIS vs RDAP, DNS records, status codes, privacy and how DomainLookup works.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is RDAP?","acceptedAnswer":{"@type":"Answer","text":"RDAP (Registration Data Access Protocol) is the modern standard that replaces WHOIS. It returns structured JSON over HTTPS and is run by every major registry."}},
+{"@type":"Question","name":"What is the difference between WHOIS and RDAP?","acceptedAnswer":{"@type":"Answer","text":"WHOIS is a plain-text format that varies from registry to registry. RDAP is structured JSON, so tools can read it reliably. DomainLookup shows both when they are available."}},
+{"@type":"Question","name":"Is the domain data live?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every search asks the registry directly. Results are cached for about 60 seconds so repeated searches are fast."}},
+{"@type":"Question","name":"Why can't I see the domain owner?","acceptedAnswer":{"@type":"Answer","text":"Most registrars hide personal data by default under GDPR and similar privacy laws. DomainLookup only shows what the registry publishes and never guesses."}},
+{"@type":"Question","name":"What does 'available' mean?","acceptedAnswer":{"@type":"Answer","text":"The registry reported no record for that name. Some registries answer the same way for reserved or blocked names, so confirm with a registrar before you buy."}},
+{"@type":"Question","name":"Do you store my searches?","acceptedAnswer":{"@type":"Answer","text":"No accounts, cookies, analytics or search history. The server keeps a short-lived cache and a per-minute request counter in memory only."}},
+{"@type":"Question","name":"What are DNS records?","acceptedAnswer":{"@type":"Answer","text":"DNS records tell the internet how to reach your domain. A and AAAA map to IP addresses, MX handles email, NS points to nameservers, TXT holds verification data, and CNAME aliases one name to another."}},
+{"@type":"Question","name":"What do domain status codes mean?","acceptedAnswer":{"@type":"Answer","text":"Status codes describe locks and holds. For example, clientTransferProhibited means the registrar has locked the domain against transfers. DomainLookup explains each one in plain language."}}
+]}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+<section class="page-hero"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / FAQ</p><h1>Frequently Asked Questions</h1><p>Straight answers about domain records, WHOIS, RDAP, DNS, privacy and how the lookup works.</p></div></section>
+
+<section class="block"><div class="wrap"><div class="faq">
+
+<details open><summary>What is RDAP?</summary><p>RDAP (Registration Data Access Protocol) is the modern standard that replaces WHOIS. It returns structured JSON over HTTPS, supports secure connections, and is run by every major registry including .com, .net, .org and .in. DomainLookup queries RDAP first and falls back to WHOIS only when needed.</p></details>
+
+<details><summary>What is the difference between WHOIS and RDAP?</summary><p>WHOIS is a plain-text format that varies from registry to registry — the same field can have a different name on every server. RDAP is structured JSON, so tools can read it reliably. DomainLookup shows both when they are available, and you can switch to the raw view in the results tab.</p></details>
+
+<details><summary>Is the domain data live?</summary><p>Yes. Every search asks the registry directly through RDAP and, where available, the WHOIS server. Results are cached for about 60 seconds so repeated searches are fast and fair to the registries.</p></details>
+
+<details><summary>Why can't I see the domain owner?</summary><p>Since 2018, most registrars hide personal contact details by default under GDPR and similar privacy laws. DomainLookup only shows what the registry publishes and never guesses an owner. If you need to contact an owner, some registrars offer an anonymous contact form.</p></details>
+
+<details><summary>What does "available" mean here?</summary><p>The registry reported no record for that name. Some registries answer the same way for reserved or blocked names, so confirm with a registrar before you buy. Premium and auction names may also show as available but carry a higher price.</p></details>
+
+<details><summary>Can I check other extensions of the same name?</summary><p>Yes. Every result includes a list of other extensions (.com, .net, .org, .in, .co, .io, .info, .co.in) with their status. Click one to open its full record. This is useful when you are choosing between TLDs for a new project.</p></details>
+
+<details><summary>Can I look up an IP address or a URL?</summary><p>You can paste a full URL and we extract the domain. IP addresses are not supported because they use a different registry system (RIRs — Regional Internet Registries) with their own RDAP services.</p></details>
+
+<details><summary>What are DNS records and why do they matter?</summary><p>DNS records tell the internet how to reach your domain. <b>A</b> and <b>AAAA</b> records map to IPv4 and IPv6 addresses, <b>MX</b> handles email delivery, <b>NS</b> points to the authoritative nameservers, <b>TXT</b> holds verification and SPF/DKIM data, <b>CNAME</b> aliases one name to another, <b>SOA</b> defines the zone authority and <b>CAA</b> restricts which certificate authorities can issue SSL certificates for your domain.</p></details>
+
+<details><summary>How does DomainLookup fetch DNS records?</summary><p>We query public DNS-over-HTTPS (DoH) resolvers — Cloudflare (1.1.1.1) and Google (8.8.8.8) — directly from your browser. No backend is involved, and no DNS query is logged against your account.</p></details>
+
+<details><summary>Why did my lookup fail?</summary><p>Common causes: a typo, a registry that is temporarily down or rate limiting you, or an extension that has no public RDAP service. The error message says which one. Try again in a minute if it is a rate-limit issue.</p></details>
+
+<details><summary>What do the status codes mean?</summary><p>They describe locks and holds. For example, "clientTransferProhibited" means the registrar has locked the domain against transfers. "clientHold" means DNS resolution is suspended. We explain each one in plain language next to the code in your results.</p></details>
+
+<details><summary>Do you store my searches or personal data?</summary><p>No accounts, no cookies, no analytics and no search history. The server keeps a short-lived cache (about 60 seconds) and a per-minute request counter in memory only — nothing is written to disk. Full details are in the <a href="privacy.html">privacy policy</a>.</p></details>
+
+<details><summary>Is there a limit on searches?</summary><p>Yes — a fair-use limit per minute per visitor, to protect the public registry services from overload. The limit is generous for normal use and only kicks in with automated bulk queries.</p></details>
+
+<details><summary>Can I use DomainLookup for bulk lookups or an API?</summary><p>The public site is for individual lookups. If you need bulk lookups or an API for your own product, contact <a href="developer.html">Access Authority</a> to discuss access.</p></details>
+
+<details><summary>Who built DomainLookup?</summary><p>Access Authority — a web solutions company that builds websites, ERP systems and custom software. See the <a href="developer.html">developer page</a> for more, or visit <a href="https://accessauthority.in" target="_blank" rel="noopener">accessauthority.in</a>.</p></details>
+
+</div></div></section>
+
+<section class="block white"><div class="wrap">
+  <div class="head-s"><h2>Still Have a Question?</h2><p>Try a lookup first — most answers become obvious once you see a real record.</p></div>
+  <div class="btn-row">
+    <a class="btn grad" href="index.html#lookup">Try a Domain Lookup</a>
+    <a class="btn line" href="how-it-works.html">Read How It Works</a>
+    <a class="btn line" href="developer.html">Contact the Developer</a>
+  </div>
+</div></section>
+</main>
+<div class="wrap cta-wrap"><div class="cta"><div><h2>Check a domain now</h2><p>Type a name and see the registry record in a few seconds.</p></div>
+<form class="search js-goto" novalidate><label for="cq" class="sr">Domain name</label><input id="cq" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="example.com"><button class="primary grad" type="submit">Search Domain</button></form></div></div>
+<footer id="site-footer"></footer>
+<div id="toasts" class="toasts"></div>
+<script type="module" src="js/layout.js"></script>
+</body>
+</html>

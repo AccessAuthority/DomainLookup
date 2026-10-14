@@ -1,0 +1,12 @@
+{
+  "name": "DomainLookup",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DomainLookup — domain lookup (RDAP + WHOIS) by Access Authority",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node test/run.mjs"
+  }
+}

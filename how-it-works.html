@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Domain Lookup Works — RDAP, WHOIS & DNS Explained | DomainLookup</title>
+<meta name="description" content="Learn how DomainLookup works: input cleaning, IANA registry discovery, RDAP and WHOIS queries, DNS record fetching and how we merge registry data into one readable domain record.">
+<meta name="keywords" content="how domain lookup works, rdap explained, whois explained, iana registry, dns lookup, domain record structure, rdap vs whois, domain data sources">
+<meta name="theme-color" content="#0f1115">
+<link rel="canonical" href="https://domainlookup.onrender.com/how-it-works.html">
+    <meta property="og:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DomainLookup — free WHOIS, RDAP and DNS lookup" />
+    <meta name="twitter:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+<meta property="og:title" content="How Domain Lookup Works — RDAP, WHOIS & DNS Explained">
+<meta property="og:description" content="From the name you type to the record on screen: where the data comes from and why some fields can be empty.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://domainlookup.onrender.com/how-it-works.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Domain Lookup Works — RDAP, WHOIS & DNS Explained">
+<meta name="twitter:description" content="From the name you type to the record on screen: where the data comes from and why some fields can be empty.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How Domain Lookup Works — RDAP, WHOIS & DNS Explained","description":"Learn how DomainLookup works: input cleaning, IANA registry discovery, RDAP and WHOIS queries, DNS record fetching and how we merge registry data into one readable domain record.","author":{"@type":"Organization","name":"Access Authority"},"publisher":{"@type":"Organization","name":"DomainLookup"},"mainEntityOfPage":"https://domainlookup.onrender.com/how-it-works.html"}
+</script>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+<section class="page-hero"><div class="wrap"><p class="crumbs"><a href="index.html">Home</a> / How It Works</p><h1>How DomainLookup Works</h1><p>From the name you type to the record on screen: where the data comes from, how we query it and why some fields can be empty.</p></div></section>
+
+<section class="block"><div class="wrap split">
+  <div class="split-img"><div class="frame"><img src="assets/images/clean_input.webp" alt="Source code on a dark monitor representing domain input validation and parsing" loading="lazy" decoding="async"></div></div>
+  <div>
+    <h2>1. We Clean the Input</h2>
+    <p>You can paste <code>example.com</code>, <code>https://www.example.com/page</code> or an international domain such as <code>münchen.de</code>. We keep only the hostname, lower-case it, drop a leading <code>www.</code> and convert international characters to Punycode (ASCII).</p>
+    <p>Anything that is not a valid domain — an IP address, a typo, an email address — is rejected before any request is made. This keeps lookups clean and prevents wasted registry queries.</p>
+    <ul class="ticks">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>URL parsing</b><span>Full URLs, paths and query strings are stripped down to the hostname.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Punycode conversion</b><span>International domain names like münchen.de become xn--mnchen-3ya.de for the registry.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Validation</b><span>IP addresses, emails and malformed names are rejected with a clear error.</span></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="block white"><div class="wrap split rev">
+  <div class="split-img"><div class="frame"><img src="assets/images/find_registry.webp" alt="Earth at night with glowing network connections representing global domain registries" loading="lazy" decoding="async"></div></div>
+  <div>
+    <h2>2. We Find the Right Registry</h2>
+    <p>Every extension — .com, .in, .co.uk — is run by a registry. IANA publishes a public directory that maps each extension to the registry's RDAP service. We use the longest match, so <code>bbc.co.uk</code> goes to the .co.uk service rather than .uk.</p>
+    <p>For WHOIS we ask <code>whois.iana.org</code> which server handles the extension, then query that server directly. This two-step discovery is why multi-part extensions like <code>.co.in</code> and <code>.com.au</code> work correctly.</p>
+    <ul class="ticks">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>IANA bootstrap</b><span>The official directory of RDAP services, updated by IANA.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Longest-suffix match</b><span>Ensures .co.uk wins over .uk, and .co.in over .in.</span></div></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>WHOIS server discovery</b><span>For .com and .net, the registry only knows the registrar — so we follow the referral for the full record.</span></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap split">
+  <div class="split-img"><div class="frame"><img src="assets/images/read_display.webp" alt="Analytics dashboard with charts on a laptop screen representing domain record data" loading="lazy" decoding="async"></div></div>
+ <div>
+  <h2>3. We Read, Merge and Explain</h2>
+  <p>We query RDAP and WHOIS together. For thin registries like .com and .net, we also follow the registrar's record for fuller details.</p>
+  <p>Everything is merged into one structured model — registrar, dates, nameservers, status, DNSSEC, contacts and DNS — with plain-language labels.</p>
+  <ul class="ticks">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>RDAP</b><span>Modern JSON replacement for WHOIS — turned into readable tables.</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>WHOIS</b><span>Older plain-text protocol — original text plus parsed fields.</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>DNS records</b><span>Live from public DoH resolvers — A, AAAA, MX, NS, TXT, CNAME, SOA, CAA.</span></div></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Fallback</b><span>If the server is unreachable, your browser queries RDAP directly.</span></div></li>
+  </ul>
+</div>
+</div></section>
+
+<section class="block white"><div class="wrap">
+  <div class="head-s"><h2>Why a Field Can Be Empty</h2><p>Domain records are not always complete. Here is why.</p></div>
+  <div class="grid3">
+    <div class="card grad-top"><h3>Privacy Redaction</h3><p>Registrant names, emails and phone numbers are usually hidden by the registrar under GDPR and similar laws. We show "Not provided by registry" rather than guess.</p></div>
+    <div class="card grad-top"><h3>Registry Differences</h3><p>Each registry decides what it publishes. A .in record looks different from a .com record, and some registries publish far less than others.</p></div>
+    <div class="card grad-top"><h3>Rate Limits</h3><p>Registries limit requests to protect their infrastructure. If you see a rate-limit message, wait a minute and try again.</p></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="head-s"><h2>Data Sources We Use</h2><p>Everything comes from official, public services — no scraping, no third-party databases.</p></div>
+  <div class="grid3">
+    <div class="card grad-top"><h3>RDAP</h3><p>Registration Data Access Protocol — the IANA-managed, structured replacement for WHOIS. Returns JSON over HTTPS.</p></div>
+    <div class="card grad-top"><h3>WHOIS</h3><p>The legacy port-43 protocol. Still used by many registries and registrars for the registrar-level record.</p></div>
+    <div class="card grad-top"><h3>DNS-over-HTTPS</h3><p>Public resolvers (Cloudflare 1.1.1.1 and Google 8.8.8.8) provide live DNS records over HTTPS — no backend needed.</p></div>
+  </div>
+</div></section>
+
+<section class="block white"><div class="wrap">
+  <div class="head-s"><h2>What We Do Not Do</h2></div>
+  <div class="grid3">
+    <div class="card grad-top"><h3>No Owner Guessing</h3><p>If the registry redacts a name, we never try to fill it in from other sources.</p></div>
+    <div class="card grad-top"><h3>No Search History</h3><p>No accounts, no cookies, no analytics. Each lookup is independent.</p></div>
+    <div class="card grad-top"><h3>No Data Resale</h3><p>We do not store, sell or share domain records. Results are cached for about 60 seconds only.</p></div>
+  </div>
+</div></section>
+</main>
+<div class="wrap cta-wrap"><div class="cta"><div><h2>Ready to try a lookup?</h2><p>Type a name and see the registry record in a few seconds.</p></div>
+<form class="search js-goto" novalidate><label for="cq" class="sr">Domain name</label><input id="cq" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="example.com"><button class="primary grad" type="submit">Search Domain</button></form></div></div>
+<footer id="site-footer"></footer>
+<div id="toasts" class="toasts"></div>
+<script type="module" src="js/layout.js"></script>
+</body>
+</html>

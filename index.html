@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Domain Lookup — Free WHOIS, RDAP & DNS Records Checker | DomainLookup
+    </title>
+    <meta
+      name="description"
+      content="Free domain lookup tool. Check WHOIS and RDAP records, registrar details, DNS records, nameservers, registration and expiry dates, DNSSEC, status codes and domain availability for any TLD — .com, .net, .org, .in, .io and more."
+    />
+    <meta
+      name="keywords"
+      content="domain lookup, whois lookup, rdap lookup, dns lookup, domain availability checker, domain name search, nameserver lookup, domain expiry check, registrar lookup, dns records checker"
+    />
+    <meta name="theme-color" content="#0f1115" />
+    <link rel="canonical" href="https://domainlookup.onrender.com/" />
+    <meta property="og:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DomainLookup — free WHOIS, RDAP and DNS lookup" />
+    <meta name="twitter:image" content="https://domainlookup.onrender.com/assets/images/og-image.jpg" />
+    <meta
+      property="og:title"
+      content="Domain Lookup — Free WHOIS, RDAP & DNS Records Checker"
+    />
+    <meta
+      property="og:description"
+      content="Check WHOIS, RDAP, DNS records, registrar, nameservers, expiry dates and availability for any domain instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://domainlookup.onrender.com/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Domain Lookup — Free WHOIS, RDAP & DNS Records Checker"
+    />
+    <meta
+      name="twitter:description"
+      content="Check WHOIS, RDAP, DNS records, registrar, nameservers, expiry dates and availability for any domain instantly."
+    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DomainLookup",
+        "url": "https://domainlookup.onrender.com/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "description": "Free domain lookup tool for WHOIS, RDAP, DNS records, registrar, nameservers, expiry dates and availability.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Access Authority",
+          "url": "https://accessauthority.in"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header id="site-header"></header>
+    <main>
+      <section id="lookup" class="hero">
+        <div class="wrap">
+          <div class="head-content">
+            <h1>Free Domain Lookup — WHOIS, RDAP & DNS Records</h1>
+            <p class="lead">
+               Check any domain instantly — registrar, dates, DNS records, DNSSEC and availability, live from official registries.
+            </p>
+            <form id="form" class="search" novalidate>
+              <label for="q" class="sr">Domain name</label>
+              <input
+                id="q"
+                type="text"
+                inputmode="url"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                placeholder="Enter a domain, e.g. example.com"
+              />
+              <button
+                type="button"
+                id="clear"
+                class="ghost"
+                aria-label="Clear input"
+                hidden
+              >
+                ✕
+              </button>
+              <button type="submit" id="go" class="primary grad">
+                Search Domain
+              </button>
+            </form>
+            <p class="chips">
+              Try <button type="button" data-d="example.com">example.com</button
+              ><button type="button" data-d="wikipedia.org">
+                wikipedia.org</button
+              ><button type="button" data-d="bbc.co.uk">bbc.co.uk</button>
+            </p>
+            <p class="note">
+              Owner contact details are usually hidden by the registrar for
+              privacy. We only show what the registry publishes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="points">
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M7 9h10M7 13h6" /></svg
+            ><b>Registrar</b><span>Who the domain is registered through</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M8 3v4M16 3v4M3 10h18" /></svg
+            ><b>Key Dates</b><span>Created, updated and expiry</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="7" rx="1.5" />
+              <rect x="3" y="14" width="18" height="7" rx="1.5" />
+              <path d="M7 6.5h.01M7 17.5h.01" /></svg
+            ><b>Name Servers</b><span>Where the domain points</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z" />
+              <path d="M9 12l2 2 4-4" /></svg
+            ><b>Status Codes</b><span>Locks and holds explained</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="11" width="14" height="10" rx="2" />
+              <path d="M8 11V8a4 4 0 018 0v3" /></svg
+            ><b>DNSSEC</b><span>Signed or unsigned</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21c1-4 4-6 8-6s7 2 8 6" /></svg
+            ><b>Contacts</b><span>When the registry publishes them</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="wrap" id="out" aria-live="polite">
+        <div id="result"></div>
+      </section>
+
+      <section class="block">
+        <div class="wrap split">
+          <div class="split-img">
+            <div class="frame">
+              <img
+                src="assets/images/about.webp"
+                alt="Domain analytics dashboard showing charts on a laptop screen"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        <div>
+  <h2>Every WHOIS, RDAP &amp; DNS field in one clean view</h2>
+  <p>
+    Structured domain records with registrar, nameservers, dates and DNS — no raw WHOIS or RDAP JSON.
+  </p>
+  <ul class="ticks">
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      <div><b>Domain availability</b><span>Instantly check .com, .net, .org, .in, .io, .co and more.</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      <div><b>Status codes explained</b><span>"clientTransferProhibited" becomes "Registrar has locked transfers."</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      <div><b>DNS records</b><span>A, AAAA, MX, NS, TXT, CNAME, SOA and CAA — colour-coded.</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      <div><b>Raw WHOIS &amp; RDAP data</b><span>Switch to original text or JSON and copy.</span></div>
+    </li>
+  </ul>
+  <a class="btn grad" href="#lookup">Try a Lookup</a>
+</div>
+        </div>
+      </section>
+
+      <section class="block white" id="how">
+        <div class="wrap">
+          <div class="head-s">
+            <h2>How a domain lookup works</h2>
+            <p>Three steps, usually completed in under two seconds.</p>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="ph">
+                <img
+                  src="assets/images/clean_input.webp"
+                  alt="Source code on a dark monitor representing domain input validation"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Clean the input</h3>
+              <p>
+                Paste a domain or full URL. We extract the hostname, lower-case
+                it and convert international names to ASCII (Punycode).
+              </p>
+            </article>
+            <article class="step">
+              <div class="ph">
+                <img
+                  src="assets/images/find_registry.webp"
+                  alt="Earth at night with glowing network connections representing global domain registries"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Find the registry</h3>
+              <p>
+                The IANA directory tells us which registry runs the extension,
+                including multi-part ones like .co.uk.
+              </p>
+            </article>
+            <article class="step">
+              <div class="ph">
+                <img
+                  src="assets/images/read_display.webp"
+                  alt="Charts and numbers on a laptop showing domain record data"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>Read and display</h3>
+              <p>
+                We fetch RDAP and WHOIS records, merge them and show registrar,
+                dates, nameservers, DNS records, status and contacts.
+              </p>
+            </article>
+          </div>
+          <p style="margin-top: 22px">
+            <a href="how-it-works.html">Read the full explanation</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="block" id="dns">
+        <div class="wrap">
+          <div class="head-s">
+            <h2>DNS records explained</h2>
+            <p>
+              Every domain resolves through DNS. Here is what each record type
+              means and why it matters.
+            </p>
+          </div>
+          <div class="grid3">
+            <div class="card grad-top">
+              <h3>A Record</h3>
+              <p>
+                Maps a domain to an IPv4 address. The most common record — it
+                tells browsers where your website lives.
+              </p>
+            </div>
+            <div class="card grad-top">
+              <h3>AAAA Record</h3>
+              <p>
+                Maps a domain to an IPv6 address. The modern successor to A
+                records, used for next-generation internet.
+              </p>
+            </div>
+            <div class="card grad-top">
+              <h3>MX Record</h3>
+              <p>
+                Mail Exchange — tells the internet which servers handle email
+                for your domain.
+              </p>
+            </div>
+            <div class="card grad-top">
+              <h3>NS Record</h3>
+              <p>
+                Name Server — points to the authoritative DNS servers that hold
+                your domain's records.
+              </p>
+            </div>
+            <div class="card grad-top">
+              <h3>TXT Record</h3>
+              <p>
+                Holds text data for verification, SPF, DKIM and domain ownership
+                checks.
+              </p>
+            </div>
+            <div class="card grad-top">
+              <h3>CNAME Record</h3>
+              <p>
+                Canonical Name — aliases one domain to another, often used for
+                subdomains.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block white">
+        <div class="wrap">
+          <div class="head-s">
+            <h2>What people use DomainLookup for</h2>
+            <p>Real-world use cases for domain and DNS research.</p>
+          </div>
+          <div class="uc">
+            <article>
+              <div class="ph">
+                <img
+                  src="assets/images/Before buying.webp"
+                  alt="Business team reviewing a domain purchase decision at a table"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="b">
+                <h3>Before buying a domain owner</h3>
+                <p>
+                  Check registration age, expiry date and registrar. A name
+                  expiring next week is a very different conversation than one
+                  renewed for ten years.
+                </p>
+              </div>
+            </article>
+            <article>
+              <div class="ph">
+                <img
+                  src="assets/images/Investigate a suspicious link.webp"
+                  alt="Padlock over circuit board representing phishing and domain security checks"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="b">
+                <h3>Investigate a suspicious link</h3>
+                <p>
+                  Phishing sites are often days old. A domain created yesterday
+                  that imitates a bank is a strong warning sign.
+                </p>
+              </div>
+            </article>
+            <article>
+              <div class="ph">
+                <img
+                  src="assets/images/Fix DNS.webp"
+                  alt="Laptop on a desk with blue light representing DNS and migration work"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="b">
+                <h3>Fix DNS and migration issues</h3>
+                <p>
+                  Confirm the nameservers a domain really uses and whether a
+                  registrar lock or hold is blocking a change.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block dark light-off" id="developer">
+        <div class="wrap split">
+          <div class="split-img dev-img">
+            <div class="frame">
+              <img
+                src="assets/images/Access Authority_ Modern Web Solutions.webp"
+                alt="Developer writing code on a laptop at a desk"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="dev-badge">
+              <b>Access Authority</b><span>Web solutions company</span>
+            </div>
+          </div>
+          <div>
+            <span class="dev-name">Built by Access Authority</span>
+            <h2>Designed and developed by a team that ships web products</h2>
+            <p>
+              DomainLookup is an in-house product from Access Authority — a web
+              solutions company building websites, ERP systems and custom
+              software for clients, plus its own tools such as ChitraKit and
+              QRKit.
+            </p>
+            <ul class="tags">
+              <li>Web Development</li>
+              <li>ERP</li>
+              <li>Custom Software</li>
+              <li>UI/UX Design</li>
+              <li>ASP.NET Core</li>
+              <li>Node.js</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn grad" href="developer.html">Meet the Developer</a
+              ><a
+                class="btn alt"
+                href="https://accessauthority.in"
+                target="_blank"
+                rel="noopener"
+                >Visit accessauthority.in</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wrap">
+          <div class="head-s"><h2>Frequently asked questions</h2></div>
+          <div class="faq">
+            <details>
+              <summary>Is the domain data live?</summary>
+              <p>
+                Yes. Each search queries the registry's RDAP service and, where
+                available, the WHOIS server. Results are cached for about 60
+                seconds to keep things fast and fair to the registries.
+              </p>
+            </details>
+            <details>
+              <summary>Why is the domain owner's name missing?</summary>
+              <p>
+                Since 2018 most registries and registrars hide personal contact
+                details for privacy (GDPR and similar laws). DomainLookup shows
+                only what is published and never guesses an owner.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Does "no record found" mean the domain is available?
+              </summary>
+              <p>
+                Usually yes. When the registry confirms there is no record, we
+                show the domain as available. Reserved and blocked names can
+                look the same, so always confirm with a registrar before buying.
+              </p>
+            </details>
+            <details>
+              <summary>What is the difference between WHOIS and RDAP?</summary>
+              <p>
+                WHOIS is the older plain-text protocol. RDAP (Registration Data
+                Access Protocol) is the modern, structured replacement that
+                returns JSON. DomainLookup queries both and shows whichever is
+                available.
+              </p>
+            </details>
+            <details>
+              <summary>Do you store my searches?</summary>
+              <p>
+                No accounts, no cookies, no analytics and no search history. See
+                our <a href="privacy.html">privacy policy</a>.
+              </p>
+            </details>
+          </div>
+          <p style="margin-top: 20px; text-align: center">
+            <a href="faq.html">See all questions</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <div id="toasts" class="toasts"></div>
+    <script type="module" src="js/layout.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

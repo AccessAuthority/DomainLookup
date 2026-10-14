@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: DomainLookup
+    runtime: node
+    plan: free
+    buildCommand: "echo no build"
+    startCommand: node server/server.js
+    healthCheckPath: /api/health
+    envVars:
+      # Render puts exactly one proxy in front: trust the address it appends to X-Forwarded-For (rate limiting + HSTS).
+      - key: TRUST_PROXY
+        value: "1"
+      - key: RATE_LIMIT_PER_MIN
+        value: "40"
+      - key: GLOBAL_RATE_PER_MIN
+        value: "300"
+      # Only needed if a DIFFERENT site calls this API (comma separated). Leave unset for same-origin use.
+      # - key: ALLOWED_ORIGIN
+      #   value: "https://your-frontend.example"

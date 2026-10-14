@@ -1,0 +1,6 @@
+# Report security issues responsibly. Please do not open public issues for vulnerabilities.
+Contact: https://accessauthority.in
+Expires: 2027-10-14T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://domainlookup.onrender.com/.well-known/security.txt
+Policy: https://domainlookup.onrender.com/terms

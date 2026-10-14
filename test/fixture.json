@@ -1,0 +1,8 @@
+{"domain":"example.com","available":false,"errors":{},
+"rdap":{"url":"https://rdap.verisign.com/com/v1/domain/example.com","json":{"objectClassName":"domain","handle":"2336799_DOMAIN_COM-VRSN","ldhName":"EXAMPLE.COM","status":["client delete prohibited","client transfer prohibited","client update prohibited"],
+"events":[{"eventAction":"registration","eventDate":"1995-08-14T04:00:00Z"},{"eventAction":"expiration","eventDate":"2026-08-13T04:00:00Z"},{"eventAction":"last changed","eventDate":"2025-08-14T07:01:39Z"}],
+"nameservers":[{"ldhName":"A.IANA-SERVERS.NET"},{"ldhName":"B.IANA-SERVERS.NET","ipAddresses":{"v4":["199.43.133.53"]}}],
+"secureDNS":{"delegationSigned":true},
+"entities":[{"roles":["registrar"],"publicIds":[{"type":"IANA Registrar ID","identifier":"376"}],"vcardArray":["vcard",[["version",{},"text","4.0"],["fn",{},"text","RESERVED-Internet Assigned Numbers Authority"]]]}]}},
+"registrarRdap":null,
+"whois":{"server":"whois.verisign-grs.com","text":"   Domain Name: EXAMPLE.COM\r\n   Registry Domain ID: 2336799_DOMAIN_COM-VRSN\r\n   Registrar WHOIS Server: whois.iana.org\r\n   Registrar URL: http://res-dom.iana.org\r\n   Updated Date: 2025-08-14T07:01:39Z\r\n   Creation Date: 1995-08-14T04:00:00Z\r\n   Registry Expiry Date: 2026-08-13T04:00:00Z\r\n   Registrar: RESERVED-Internet Assigned Numbers Authority\r\n   Registrar IANA ID: 376\r\n   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\r\n   Name Server: A.IANA-SERVERS.NET\r\n   DNSSEC: signedDelegation\r\n"}}
