@@ -167,7 +167,8 @@ export function altCard(name, current, onPick) {
   };
 }
 
-const srcNote = m => el('p', { class: 'srcnote' }, 'Sources: ', el('span', { class: 'code' }, m.sources.join(' · ') || 'registry'));
+// const srcNote = m => el('p', { class: 'srcnote' }, 'Sources: ', el('span', { class: 'code' }, m.sources.join(' · ') || 'registry'));.
+const srcNote = () => el('p', { class: 'srcnote' }, 'Note: Check out Access Authority Youtube Channel for more information on how to use this tool.');
 
 /* ---------- DNS Records Card: labels, icons, colours ---------- */
 const DNS_META = {
@@ -374,7 +375,7 @@ export function showResult(m, ctx, onAgain) {
 
   // Balanced layout: left column = info; right column = registrar + contacts + dates
   // DNS card full-width below
-  $('#result').replaceChildren(
+    $('#result').replaceChildren(...[
     banner,
     alertNode,
     sum,
@@ -387,5 +388,5 @@ export function showResult(m, ctx, onAgain) {
     el('div', { id: 'sub-slot' }),
     m.tabs.length ? tabsCard(m.tabs) : null,
     srcNote(m)
-  );
+  ].filter(Boolean));
 }
