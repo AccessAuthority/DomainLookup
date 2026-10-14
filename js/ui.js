@@ -168,7 +168,7 @@ export function altCard(name, current, onPick) {
 }
 
 // const srcNote = m => el('p', { class: 'srcnote' }, 'Sources: ', el('span', { class: 'code' }, m.sources.join(' · ') || 'registry'));.
-const srcNote = () => el('p', { class: 'srcnote' }, 'Note: Check out Access Authority Youtube Channel for more information on how to use this tool.');
+const srcNote = () => el('p', { class: 'srcnote' }, 'Note: Check out Access Authority Youtube Channel for more information on how to use this tool.');  
 
 /* ---------- DNS Records Card: labels, icons, colours ---------- */
 const DNS_META = {
